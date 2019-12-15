@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>模板引擎的使用</h2>
+    <script src="./js/template-web.js"></script>
+
+    <script type="text/css" id="aa">
+        {{if age < 18}}
+        <p>禁止未成年进入</p>
+        {{else}}
+        <p>可以进入</p>
+        {{/if}}
+    <ul>
+    {{each heroes value key}}
+
+    <li>{{value}}</li>
+    {{/each}}
+    </ul>
+    
+    
+    </script>
+
+    <script>
+    var str = template("aa",{
+
+            title:"这是一个英雄",
+            age:20,
+            heroes:['英雄1','英雄2','英雄3']
+    })
+    console.log(str);
+    
+    document.body.innerHTML = str;
+    </script>
+
+</body>
+</html>
